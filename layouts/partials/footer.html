@@ -7,7 +7,7 @@ For single pages (which are not articles), single-footer.html
 For posts/articles pages, posts-footer.html
 */}}
 <p>
-	&copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+	&copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
 	&#183; {{ .Site.Params.footerCopyright | safeHTML }}
 	{{- if not .Site.Params.footerHideThemeName -}}
 	&#183; Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>
@@ -15,3 +15,4 @@ For posts/articles pages, posts-footer.html
 	{{- end -}}
 	{{- with .OutputFormats.Get "RSS" }}&#183; <a href="{{ "index.xml" | absLangURL }}" target="_blank" title="rss">{{- partial "svg.html" (dict "context" . "name" "rss") -}}</a>{{- end -}}
 </p>
+{{- partial "custom-footer.html" . -}}
