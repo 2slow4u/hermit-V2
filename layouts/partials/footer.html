@@ -7,8 +7,8 @@ For single pages (which are not articles), single-footer.html
 For posts/articles pages, posts-footer.html
 */}}
 <p>
-	&copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
-	&#183; {{ .Site.Params.footerCopyright | safeHTML }}
+	&copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+	{{- with .Site.Params.footerCopyright -}} &#183; {{ . | safeHTML }}{{- end -}}
 	{{- if not .Site.Params.footerHideThemeName -}}
 	&#183; Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>
 	&#183; Theme <a href="https://github.com/1bl4z3r/hermit-V2" target="_blank" rel="noopener">Hermit-V2</a>
